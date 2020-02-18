@@ -28,7 +28,6 @@ namespace ExceptionHandlingExercise
             
                 // Now create a try catch
                 
-                
                     // Inside your try block
                         // set your string variable to each array element in your char[] to .ToString()
                         // Now, using int.Parse, parse your string variable and store in an int variable
@@ -48,6 +47,7 @@ namespace ExceptionHandlingExercise
                 catch (Exception e)
                 {
                     Console.WriteLine($"Unable to Parse '{character}': {e.Message}");
+                    File.AppendAllText("Log.txt", $"{DateTime.Now.ToString()}: {e.Message}" + Environment.NewLine);
                 }
             }
 
