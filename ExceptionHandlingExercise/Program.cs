@@ -47,7 +47,7 @@ namespace ExceptionHandlingExercise
                 }
                 catch (Exception e)
                 {
-                    Console.WriteLine($"Unable to Parse '{character}': {e.Message}");
+                    Console.WriteLine($"{DateTime.Now}: Unable to Parse '{character}': {e.Message}");
                     /*File.AppendAllText("Log.txt", $"{DateTime.Now.ToString()}: {e.Message}" *//*+ Environment.NewLine*//*);*/
                     LoggerError(e);
                 }
