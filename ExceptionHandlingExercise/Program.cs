@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 
 namespace ExceptionHandlingExercise
 {
@@ -47,7 +48,8 @@ namespace ExceptionHandlingExercise
                 catch (Exception e)
                 {
                     Console.WriteLine($"Unable to Parse '{character}': {e.Message}");
-                    File.AppendAllText("Log.txt", $"{DateTime.Now.ToString()}: {e.Message}" + Environment.NewLine);
+                    /*File.AppendAllText("Log.txt", $"{DateTime.Now.ToString()}: {e.Message}" *//*+ Environment.NewLine*//*);*/
+                    LoggerError(e);
                 }
             }
 
@@ -55,6 +57,17 @@ namespace ExceptionHandlingExercise
             {
                 Console.WriteLine(num);
             }
+        }
+        static void LoggerError(Exception error)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            sb.Append($"{Environment.NewLine}--------------------{Environment.NewLine}");
+            sb.Append($"{error.Message} {DateTime.Now}");
+            sb.Append($"{Environment.NewLine}--------------------{Environment.NewLine}");
+            var filePath = "";
+
+            File.AppendAllText(filePath + "log.txt", sb.ToString());
         }
     }
 }
