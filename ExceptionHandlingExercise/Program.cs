@@ -41,7 +41,8 @@ namespace ExceptionHandlingExercise
             {
                 try
                 {
-                    int number = int.Parse(character.ToString());
+                    str = character.ToString();
+                    int number = int.Parse(str);
                     numbers.Add(number);
                 }
                 catch (Exception e)
